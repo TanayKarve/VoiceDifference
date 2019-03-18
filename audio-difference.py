@@ -22,7 +22,7 @@ def calc_distances(sound_file):
     return distances
     
 def accept_test(pattern, test, min_error):
-    if len(pattern) > len(test):
+    if len(pattern) > len(test) or len(pattern)==0:
         return False
     res=[]
     for i, dt in enumerate(pattern):
