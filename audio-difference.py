@@ -29,7 +29,7 @@ def accept_test(pattern, test, min_error):
         if not dt - test[i] < min_error:
             return False
     return True
-pattern = calc_distances(input("Enter first music file")
-test = calc_distances("Enter second music file")
+pattern = calc_distances("knock-pattern.wav)
+test = calc_distances("knock-test.wav")
 min_error = 0.1
 print accept_test(pattern, test, min_error)
