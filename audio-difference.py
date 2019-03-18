@@ -3,8 +3,7 @@ def calc_distances(sound_file):
     min_val = 5000
     fs, data = read(sound_file)
     data_size = len(data)
-    focus_size = int(0.15 * fs)
-    
+    focus_size = int(0.15 * fs)   
     focuses = []
     distances = []
     idx = 0
@@ -25,11 +24,15 @@ def calc_distances(sound_file):
 def accept_test(pattern, test, min_error):
     if len(pattern) > len(test):
         return False
+    res=[]
     for i, dt in enumerate(pattern):
         if not dt - test[i] < min_error:
             return False
-    return True
-pattern = calc_distances("knock-pattern.wav)
+        else:
+        	res.append(dt-test[i])
+    return (1-res[0])*100
+
+pattern = calc_distances("knock-pattern.wav")
 test = calc_distances("knock-test.wav")
 min_error = 0.1
-print accept_test(pattern, test, min_error)
+print ("{}% match".format(round(accept_test(pattern, test, min_error))))
